@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>AirChat — Public Releases</title>
+    <meta
+      name="description"
+      content="Публичная витрина релизов AirChat (без исходного кода)."
+    />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --panel: rgba(255, 255, 255, 0.06);
+        --panel2: rgba(255, 255, 255, 0.08);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.68);
+        --border: rgba(255, 255, 255, 0.12);
+        --accent: #7c5cff;
+        --accent2: #27d2ff;
+        --ok: #2dd4bf;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f7f8ff;
+          --panel: rgba(20, 26, 61, 0.06);
+          --panel2: rgba(20, 26, 61, 0.08);
+          --text: rgba(12, 14, 28, 0.92);
+          --muted: rgba(12, 14, 28, 0.68);
+          --border: rgba(12, 14, 28, 0.12);
+        }
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font: 16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text",
+          "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, system-ui,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background:
+          radial-gradient(900px 600px at 10% 10%, rgba(124, 92, 255, 0.28), transparent 60%),
+          radial-gradient(900px 600px at 90% 20%, rgba(39, 210, 255, 0.18), transparent 60%),
+          radial-gradient(900px 600px at 50% 90%, rgba(45, 212, 191, 0.14), transparent 60%),
+          var(--bg);
+      }
+      a { color: inherit; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .wrap { max-width: 1080px; padding: 28px 20px 56px; margin: 0 auto; }
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        border-radius: 14px;
+        backdrop-filter: blur(10px);
+      }
+      .logo {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        box-shadow: 0 12px 30px rgba(0,0,0,0.28);
+      }
+      .title { display: grid; gap: 2px; }
+      .title b { font-size: 14px; letter-spacing: 0.2px; }
+      .title span { font-size: 12px; color: var(--muted); }
+      .nav {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      .btn {
+        border: 1px solid var(--border);
+        background: var(--panel);
+        padding: 10px 12px;
+        border-radius: 12px;
+        transition: transform 120ms ease, background 120ms ease;
+        backdrop-filter: blur(10px);
+      }
+      .btn.primary {
+        border-color: rgba(124, 92, 255, 0.55);
+        background: linear-gradient(135deg, rgba(124, 92, 255, 0.22), rgba(39, 210, 255, 0.14));
+      }
+      .btn:hover { transform: translateY(-1px); background: var(--panel2); text-decoration: none; }
+      .hero {
+        margin-top: 26px;
+        padding: 22px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18px;
+        align-items: center;
+        backdrop-filter: blur(10px);
+      }
+      @media (max-width: 900px) {
+        .hero { grid-template-columns: 1fr; }
+      }
+      h1 {
+        margin: 0;
+        font-size: 34px;
+        line-height: 1.15;
+        letter-spacing: -0.3px;
+      }
+      .sub {
+        margin-top: 10px;
+        color: var(--muted);
+        max-width: 58ch;
+      }
+      .chips { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
+      .chip {
+        padding: 7px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .grid {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+      .card {
+        border: 1px solid var(--border);
+        background: var(--panel);
+        border-radius: 16px;
+        padding: 14px;
+        backdrop-filter: blur(10px);
+      }
+      .card b { display: block; margin-bottom: 6px; }
+      .card p { margin: 0; color: var(--muted); font-size: 14px; }
+      .right {
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,0.10);
+        padding: 14px;
+      }
+      .right .k { font-size: 12px; color: var(--muted); }
+      .right .v { font-size: 22px; font-weight: 700; margin-top: 4px; }
+      .right .note { margin-top: 10px; font-size: 13px; color: var(--muted); }
+      .img {
+        margin-top: 16px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        border-radius: 18px;
+        overflow: hidden;
+      }
+      .img img { display: block; width: 100%; height: auto; }
+      footer {
+        margin-top: 22px;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 13px;
+      }
+      .sep { opacity: 0.6; padding: 0 8px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div class="brand" aria-label="AirChat">
+          <div class="logo" aria-hidden="true"></div>
+          <div class="title">
+            <b>AirChat</b>
+            <span>Public Releases • без исходного кода</span>
+          </div>
+        </div>
+
+        <div class="nav" role="navigation" aria-label="Links">
+          <a class="btn primary" href="https://github.com/Patkins93/AirChat-Releases/releases">Releases</a>
+          <a class="btn" href="https://github.com/Patkins93/AirChat/releases">Release notes</a>
+          <a class="btn" href="https://github.com/Patkins93/AirChat-Releases/blob/main/PRIVACY.md">Privacy</a>
+          <a class="btn" href="https://github.com/Patkins93/AirChat-Releases/blob/main/SUPPORT.md">Support</a>
+        </div>
+      </div>
+
+      <section class="hero">
+        <div>
+          <h1>Офлайн‑чат поблизости<br />по локальной mesh‑сети</h1>
+          <div class="sub">
+            Эта страница — публичная витрина релизов. Исходный код остаётся приватным.
+          </div>
+
+          <div class="chips" aria-label="Highlights">
+            <span class="chip">BLE / Local Network</span>
+            <span class="chip">Private messages (encrypted)</span>
+            <span class="chip">ACK + дедупликация</span>
+            <span class="chip">iOS</span>
+          </div>
+
+          <div class="grid" aria-label="Features">
+            <div class="card">
+              <b>Локально‑первый</b>
+              <p>Работает без интернета в окружении устройств поблизости.</p>
+            </div>
+            <div class="card">
+              <b>Приватность</b>
+              <p>Приватные сообщения шифруются; релейные узлы не расшифровывают payload.</p>
+            </div>
+            <div class="card">
+              <b>Надёжность</b>
+              <p>Подтверждения доставки (ACK) и защита от дубликатов.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="right" aria-label="Release">
+          <div class="k">Последний релиз</div>
+          <div class="v">v1.2.0</div>
+          <div class="note">
+            Установка: App Store / TestFlight (по приглашению).<br />
+            Подробности — в релизах и release notes.
+          </div>
+          <div style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap;">
+            <a class="btn primary" href="https://github.com/Patkins93/AirChat-Releases/releases/tag/v1.2.0">Открыть релиз</a>
+            <a class="btn" href="https://github.com/Patkins93/AirChat/releases/tag/v1.2.0">Release notes</a>
+          </div>
+        </aside>
+      </section>
+
+      <div class="img" aria-label="Screenshot">
+        <img src="./sim_screenshot.svg" alt="Скриншот AirChat (симулятор)" />
+      </div>
+
+      <footer>
+        <div>
+          <span>© 2026 AirChat</span><span class="sep">•</span>
+          <span>All rights reserved</span>
+        </div>
+        <div>
+          <a href="https://github.com/Patkins93/AirChat-Releases">GitHub</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

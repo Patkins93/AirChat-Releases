@@ -1,21 +1,34 @@
-# AirChat (Public Releases)
+# AirChat — Public Releases
 
-Это публичная витрина релизов **AirChat**. Здесь **нет исходного кода**.
+[![Latest Release](https://img.shields.io/github/v/release/Patkins93/AirChat-Releases?display_name=tag&sort=semver)](https://github.com/Patkins93/AirChat-Releases/releases)
+[![Release Notes](https://img.shields.io/badge/release%20notes-AirChat-blue)](https://github.com/Patkins93/AirChat/releases)
+
+Это публичная витрина релизов **AirChat**. Здесь **нет исходного кода** и не публикуются приватные материалы разработки.
 
 ## Скачать / Установить
 - App Store: (скоро)
 - TestFlight: (по приглашению)
+- IPA: (по запросу / внутреннее тестирование)
 
 ## Релизы
 - Последний: **v1.2.0**
-  - Release notes: https://github.com/Patkins93/AirChat/releases/tag/v1.2.0
+  - Release notes (private repo): https://github.com/Patkins93/AirChat/releases/tag/v1.2.0
+
+## Что это за приложение
+- Офлайн‑чат поблизости (локальная mesh‑сеть).
+- Приватные сообщения с шифрованием.
+- Надёжная доставка: ACK/подтверждения, дедупликация.
 
 ## Скриншоты
-- `docs/sim_screenshot.svg`
+- Снимок симулятора: `docs/sim_screenshot.svg`
+- Лендинг: GitHub Pages (см. ниже)
 
 ## Документы
 - Privacy: `PRIVACY.md`
 - Support: `SUPPORT.md`
+
+## GitHub Pages
+Этот репозиторий можно открыть как лендинг через GitHub Pages (папка `docs/`).
 
 ## Лицензия
 - Все права защищены. Использование/распространение — только с письменного разрешения владельца.
